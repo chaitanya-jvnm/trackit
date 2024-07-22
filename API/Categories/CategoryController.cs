@@ -15,16 +15,20 @@ public class CategoryController : ControllerBase
     
     
     [HttpGet]
-    public async Task<IActionResult<Category[]>> GetCategories()
+    public async Task<IActionResult> GetCategories()
     {
         var result = await _mediator.Send(new GetAllCategoriesCommand());
+        if(result == null) return NotFound();
         return Ok(result);
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetCategoryById([FromRoute]int id)
+    public async Task<IActionResult> GetCategoryById([FromRoute]int id)
     {
-        
+        var result = await _mediator.Send(
+            new GetCategoryByIdCommand{categoryId = id});
+        if(result == null) return NotFound();
+        return Ok(result);
     }
 
 
