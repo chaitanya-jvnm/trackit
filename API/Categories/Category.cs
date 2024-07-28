@@ -8,4 +8,5 @@ public class Category
 
     public Action[]? Actions { get; set; }
     
+    public required int UserId { get; set; }
 }
