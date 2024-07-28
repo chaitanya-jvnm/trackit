@@ -2,10 +2,10 @@ namespace API.Categories;
 
 public class Category
 {
-    int CategoryId { get; set; }
+    public required int Id { get; set; }
     
-    string CategoryName { get; set; }
+    public required string Name { get; set; }
 
-    Action[] CategoryActions { get; set; }
+    public Action[]? Actions { get; set; }
     
 }
