@@ -1,12 +1,18 @@
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+
 namespace API.Categories;
 
 public class Category
 {
-    public required int Id { get; set; }
+    [Required]
+    public int Id { get; set; }
     
-    public required string Name { get; set; }
+    [Required]
+    public string Name { get; set; }
 
-    public Action[]? Actions { get; set; }
+    public Collection<Action>? Actions { get; set; }
     
-    public required int UserId { get; set; }
+    [Required]
+    public int UserId { get; set; }
 }
