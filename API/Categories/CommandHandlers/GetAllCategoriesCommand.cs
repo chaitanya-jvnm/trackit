@@ -1,20 +1,24 @@
+using API.Generic;
 using MediatR;
 
 namespace API.Categories.CommandHandlers;
 
 // Command
-public class GetAllCategoriesCommand : IRequest<Category[]>
-{
-    public Category[] Categories { get; set; } 
-}
+public class GetAllCategoriesCommand : IRequest<List<Category>> { }
 
 // Command Handler
-public class GetAllCategoriesCommandHandler : IRequestHandler<GetAllCategoriesCommand, Category[]>
+public class GetAllCategoriesCommandHandler : IRequestHandler<GetAllCategoriesCommand,List<Category>>
 {
-    public Task<Category[]> Handle(GetAllCategoriesCommand request, CancellationToken cancellationToken)
+    private readonly IRepository<Category> _categoryRepository;
+
+    public GetAllCategoriesCommandHandler(IRepository<Category> categoryRepository)
     {
-        Category[] categories = new Category[]();
-        return categories;
+        _categoryRepository = categoryRepository;
+    }
+
+    public async Task<List<Category>> Handle(GetAllCategoriesCommand request, CancellationToken cancellationToken)
+    {
+        return await _categoryRepository.GetAllAsync();
     }
 }
 
