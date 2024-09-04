@@ -4,10 +4,7 @@ using MediatR;
 namespace API.Categories.CommandHandlers;
 
 // Command
-public class GetAllCategoriesCommand : IRequest<List<Category>>
-{
-    public Category[]? Categories { get; set; } 
-}
+public class GetAllCategoriesCommand : IRequest<List<Category>> { }
 
 // Command Handler
 public class GetAllCategoriesCommandHandler : IRequestHandler<GetAllCategoriesCommand,List<Category>>

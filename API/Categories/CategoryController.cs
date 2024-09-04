@@ -1,6 +1,5 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using API.Categories;
 using API.Categories.CommandHandlers;
 
 namespace API.Categories;

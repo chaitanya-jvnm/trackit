@@ -11,7 +11,7 @@ public class Category
     [Required]
     public string Name { get; set; }
 
-    public Collection<Action>? Actions { get; set; }
+    public List<Action>? Actions { get; set; }
     
     [Required]
     public int UserId { get; set; }
